@@ -110,3 +110,31 @@ function handleInputChange() {
   applyInputsToConfig();
   queueRender();
 }
+
+Object.values(inputs).forEach((input) => {
+  input.addEventListener("input", handleInputChange);
+});
+
+function randomInRange(min, max, precision = 0) {
+  const factor = Math.pow(10, precision);
+  return Math.round((Math.random() * (max - min) + min) * factor) / factor;
+}
+
+randomizeBtn.addEventListener("click", () => {
+  inputs.depth.value = randomInRange(4, 12, 0);
+  inputs.angle.value = randomInRange(10, 60, 0);
+  inputs.decay.value = randomInRange(0.55, 0.85, 2);
+  inputs.trunkHeight.value = randomInRange(80, 220, 0);
+  inputs.trunkWidth.value = randomInRange(4, 20, 0);
+  inputs.startHue.value = randomInRange(0, 360, 0);
+  inputs.tipHue.value = randomInRange(0, 360, 0);
+
+  handleInputChange();
+});
+
+resetBtn.addEventListener("click", () => {
+  Object.keys(DEFAULT_CONFIG).forEach((key) => {
+    inputs[key].value = DEFAULT_CONFIG[key];
+  });
+  handleInputChange();
+});
