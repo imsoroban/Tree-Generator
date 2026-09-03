@@ -13,3 +13,13 @@ const inputs = {
   startHue: document.getElementById("startHue"),
   tipHue: document.getElementById("tipHue"),
 };
+
+const valueLabels = {
+  depth: document.getElementById("depthValue"),
+  angle: document.getElementById("angleValue"),
+  decay: document.getElementById("decayValue"),
+  trunkHeight: document.getElementById("trunkHeightValue"),
+  trunkWidth: document.getElementById("trunkWidthValue"),
+  startHue: document.getElementById("startHueValue"),
+  tipHue: document.getElementById("tipHueValue"),
+};
