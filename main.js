@@ -48,3 +48,19 @@ let renderQueued = false;
 function resizeCanvas() {
   const dpr = window.devicePixelRatio || 1;
   const rect = canvasContainer.getBoundingClientRect();
+  //ajahahahahahhahjajajajajajajajajaja i hate js i do i really do
+  if (rect.width <= 0 || rect.height <= 0) return;
+
+  cssWidth = rect.width;
+  cssHeight = rect.height;
+
+  canvas.width = Math.round(cssWidth * dpr);
+  canvas.height = Math.round(cssHeight * dpr);
+  canvas.style.width = `${cssWidth}px`;
+  canvas.style.height = `${cssHeight}px`;
+
+  ctx.setTransform(dpr, 0, 0, dpr, 0, 0);
+
+  renderTree();
+}
+
