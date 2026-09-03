@@ -57,3 +57,9 @@ export default class Tree {
     ctx.rotate(angleRad); 
     this._drawBranch(nextLength, depthRemaining - 1);
     ctx.restore();
+
+    ctx.save();
+    ctx.rotate(-angleRad);
+    this._drawBranch(nextLength, depthRemaining - 1);
+    ctx.restore();
+  }
