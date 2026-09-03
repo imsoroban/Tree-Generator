@@ -82,3 +82,31 @@ function queueRender() {
 function syncLabel(key, formatter = (v) => v) {
   valueLabels[key].textContent = formatter(inputs[key].value);
 }
+
+function syncAllLabels() {
+  syncLabel("depth");
+  syncLabel("angle", (v) => `${v}°`);
+  syncLabel("decay", (v) => Number(v).toFixed(2));
+  syncLabel("trunkHeight");
+  syncLabel("trunkWidth");
+  syncLabel("startHue", (v) => `${v}°`);
+  syncLabel("tipHue", (v) => `${v}°`);
+}
+
+function applyInputsToConfig() {
+  tree.setConfig({
+    depth: Number(inputs.depth.value),
+    angle: Number(inputs.angle.value),
+    decay: Number(inputs.decay.value),
+    trunkHeight: Number(inputs.trunkHeight.value),
+    trunkWidth: Number(inputs.trunkWidth.value),
+    startHue: Number(inputs.startHue.value),
+    tipHue: Number(inputs.tipHue.value),
+  });
+}
+
+function handleInputChange() {
+  syncAllLabels();
+  applyInputsToConfig();
+  queueRender();
+}
