@@ -79,3 +79,14 @@ export default class Tree {
   _lerp(a, b, t) {
     return a + (b - a) * t;
   }
+
+  //this should be the last part of this FUCKING JAVASCRIPT KILL ME I HATE THIS I WANNA JUMP OFF A BRIDGE
+  _lerpHue(h1, h2, t) {
+    const delta = ((h2 - h1 + 540) % 360) - 180;
+    return (h1 + delta * t + 360) % 360;
+  }
+
+  _degToRad(deg) {
+    return (deg * Math.PI) / 180;
+  }
+}
