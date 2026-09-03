@@ -38,3 +38,13 @@ const DEFAULT_CONFIG = {
   startHue: 28,
   tipHue: 132,
 };
+
+const tree = new Tree(ctx, { ...DEFAULT_CONFIG });
+
+let cssWidth = 0;
+let cssHeight = 0;
+let renderQueued = false;
+
+function resizeCanvas() {
+  const dpr = window.devicePixelRatio || 1;
+  const rect = canvasContainer.getBoundingClientRect();
