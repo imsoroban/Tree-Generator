@@ -138,3 +138,19 @@ resetBtn.addEventListener("click", () => {
   });
   handleInputChange();
 });
+
+exportBtn.addEventListener("click", () => {
+  const link = document.createElement("a");
+  const timestamp = new Date().toISOString().replace(/[:.]/g, "-");
+  link.download = `fractal-tree-${timestamp}.png`;
+  link.href = canvas.toDataURL("image/png");
+  link.click();
+});
+
+//container slop i dont know i hate js i really do this sucks please save me 
+const resizeObserver = new ResizeObserver(() => resizeCanvas());
+resizeObserver.observe(canvasContainer);
+
+syncAllLabels();
+applyInputsToConfig();
+resizeCanvas();
