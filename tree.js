@@ -72,3 +72,10 @@ export default class Tree {
     const hue = this._lerpHue(startHue, tipHue, clamped);
     const saturation = this._lerp(55, 85, clamped);
     const lightness = this._lerp(32, 62, clamped);
+
+     return `hsl(${hue.toFixed(1)}, ${saturation.toFixed(1)}%, ${lightness.toFixed(1)}%)`;
+  }
+
+  _lerp(a, b, t) {
+    return a + (b - a) * t;
+  }
