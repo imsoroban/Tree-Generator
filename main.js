@@ -64,3 +64,21 @@ function resizeCanvas() {
   renderTree();
 }
 
+function renderTree() {
+  const branchCount = tree.render(cssWidth, cssHeight);
+  statLabel.textContent = `Branches: ${branchCount.toLocaleString()}`;
+}
+
+// possibly worst language ever
+function queueRender() {
+  if (renderQueued) return;
+  renderQueued = true;
+  requestAnimationFrame(() => {
+    renderQueued = false;
+    renderTree();
+  });
+}
+
+function syncLabel(key, formatter = (v) => v) {
+  valueLabels[key].textContent = formatter(inputs[key].value);
+}
