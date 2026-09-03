@@ -26,7 +26,6 @@ export default class Tree {
     return this.branchCount;
   }
 
-  //i dont even know i just need to seperate this i hate js i hate js i hate it i hate it
   _drawBranch(length, depthRemaining) {
     const { ctx, config } = this;
 
@@ -54,7 +53,7 @@ export default class Tree {
     const angleRad = this._degToRad(config.angle);
 
     ctx.save();
-    ctx.rotate(angleRad); 
+    ctx.rotate(angleRad);
     this._drawBranch(nextLength, depthRemaining - 1);
     ctx.restore();
 
@@ -64,7 +63,6 @@ export default class Tree {
     ctx.restore();
   }
 
-  //i never want to do this again, i hate coding.
   _colorForDepth(t) {
     const clamped = Math.min(Math.max(t, 0), 1);
     const { startHue, tipHue } = this.config;
@@ -73,14 +71,13 @@ export default class Tree {
     const saturation = this._lerp(55, 85, clamped);
     const lightness = this._lerp(32, 62, clamped);
 
-     return `hsl(${hue.toFixed(1)}, ${saturation.toFixed(1)}%, ${lightness.toFixed(1)}%)`;
+    return `hsl(${hue.toFixed(1)}, ${saturation.toFixed(1)}%, ${lightness.toFixed(1)}%)`;
   }
 
   _lerp(a, b, t) {
     return a + (b - a) * t;
   }
 
-  //this should be the last part of this FUCKING JAVASCRIPT KILL ME I HATE THIS I WANNA JUMP OFF A BRIDGE
   _lerpHue(h1, h2, t) {
     const delta = ((h2 - h1 + 540) % 360) - 180;
     return (h1 + delta * t + 360) % 360;
