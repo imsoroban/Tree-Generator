@@ -3,4 +3,8 @@ export default class Tree {
     this.ctx = ctx;
     this.config = config;
     this.branchcount = 0;
-    
+  }
+  
+  setConfig(patch) {
+    this.config = { ...this.config, ...patch };
+  }
