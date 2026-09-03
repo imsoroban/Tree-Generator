@@ -28,3 +28,13 @@ const randomizeBtn = document.getElementById("randomizeBtn");
 const resetBtn = document.getElementById("resetBtn");
 const exportBtn = document.getElementById("exportBtn");
 const statLabel = document.getElementById("statLabel");
+
+const DEFAULT_CONFIG = {
+  depth: 9,
+  angle: 25,
+  decay: 0.7,
+  trunkHeight: 140,
+  trunkWidth: 12,
+  startHue: 28,
+  tipHue: 132,
+};
