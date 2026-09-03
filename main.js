@@ -5,7 +5,7 @@ const ctx = canvas.getContext("2d");
 const canvasContainer = document.getElementById("canvasContainer");
 
 const inputs = {
-    depth: document.getElementById("depth"),
+  depth: document.getElementById("depth"),
   angle: document.getElementById("angle"),
   decay: document.getElementById("decay"),
   trunkHeight: document.getElementById("trunkHeight"),
@@ -48,7 +48,7 @@ let renderQueued = false;
 function resizeCanvas() {
   const dpr = window.devicePixelRatio || 1;
   const rect = canvasContainer.getBoundingClientRect();
-  //ajahahahahahhahjajajajajajajajajaja i hate js i do i really do
+
   if (rect.width <= 0 || rect.height <= 0) return;
 
   cssWidth = rect.width;
@@ -69,7 +69,6 @@ function renderTree() {
   statLabel.textContent = `Branches: ${branchCount.toLocaleString()}`;
 }
 
-// possibly worst language ever
 function queueRender() {
   if (renderQueued) return;
   renderQueued = true;
@@ -147,7 +146,6 @@ exportBtn.addEventListener("click", () => {
   link.click();
 });
 
-//container slop i dont know i hate js i really do this sucks please save me 
 const resizeObserver = new ResizeObserver(() => resizeCanvas());
 resizeObserver.observe(canvasContainer);
 
