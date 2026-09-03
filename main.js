@@ -23,3 +23,8 @@ const valueLabels = {
   startHue: document.getElementById("startHueValue"),
   tipHue: document.getElementById("tipHueValue"),
 };
+
+const randomizeBtn = document.getElementById("randomizeBtn");
+const resetBtn = document.getElementById("resetBtn");
+const exportBtn = document.getElementById("exportBtn");
+const statLabel = document.getElementById("statLabel");
