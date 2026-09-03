@@ -30,4 +30,16 @@ export default class Tree {
   _drawBranch(length, depthRemaining) {
     const { ctx, config } = this;
 
-    const currentDepth = config.depth -
+    const currentDepth = config.depth - depthRemaining;
+    const t = config.depth === 0 ? 1 : currentDepth / config.depth;
+
+    ctx.strokeStyle = this._colorForDepth(t);
+    ctx.lineWidth = Math.max(
+      config.trunkWidth * (depthRemaining / Math.max(config.depth, 1)),
+      0.4
+    );
+
+    ctx.beginPath();
+    ctx.moveTo(0, 0);
+    ctx.lineTo(0, -length);
+    ctx.stroke();
