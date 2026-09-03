@@ -63,3 +63,12 @@ export default class Tree {
     this._drawBranch(nextLength, depthRemaining - 1);
     ctx.restore();
   }
+
+  //i never want to do this again, i hate coding.
+  _colorForDepth(t) {
+    const clamped = Math.min(Math.max(t, 0), 1);
+    const { startHue, tipHue } = this.config;
+
+    const hue = this._lerpHue(startHue, tipHue, clamped);
+    const saturation = this._lerp(55, 85, clamped);
+    const lightness = this._lerp(32, 62, clamped);
