@@ -43,3 +43,12 @@ export default class Tree {
     ctx.moveTo(0, 0);
     ctx.lineTo(0, -length);
     ctx.stroke();
+
+    this.branchCount++;
+
+    if (depthRemaining <= 0) return;
+
+    ctx.translate(0, -length);
+
+    const nextLength = length * config.decay;
+    const angleRad = this._degToRad(config.angle);
