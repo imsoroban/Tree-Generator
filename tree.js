@@ -25,3 +25,9 @@ export default class Tree {
     ctx.restore();
     return this.branchCount;
   }
+
+  //i dont even know i just need to seperate this i hate js i hate js i hate it i hate it
+  _drawBranch(length, depthRemaining) {
+    const { ctx, config } = this;
+
+    const currentDepth = config.depth -
