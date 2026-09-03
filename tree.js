@@ -52,3 +52,8 @@ export default class Tree {
 
     const nextLength = length * config.decay;
     const angleRad = this._degToRad(config.angle);
+
+    ctx.save();
+    ctx.rotate(angleRad); 
+    this._drawBranch(nextLength, depthRemaining - 1);
+    ctx.restore();
